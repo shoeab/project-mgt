@@ -1,0 +1,85 @@
+<!-- <div class="jumbotron text-center" ng-if="!main.loggedIn">
+	
+	<div>
+		<h1>Sign up</h1>
+	</div>
+
+	<div>
+		<p>Login to write your story</p>
+		<a href="/login" class="btn btn-primary">Login</a>
+	</div>
+
+</div> -->
+
+<div class="row" >
+
+	<div class="col-md-3">
+
+
+		
+	</div>
+
+	<div class="col-md-4" ng-controller="AllStoryController as story">
+
+		
+
+		<div class="panel panel-success">
+
+			<!-- <div class="panel-body" ng-repeat="lob in lobs">
+				<p> {{ lob.title }} </p>
+				<p> {{ lob.description }} </p>
+			</div> -->
+
+
+			<form method="post" class="form-sigin" ng-submit='story.createStory()'>
+<!-- {{selectedLob}} -->
+						<label>Lob:</label>
+						<select ng-model="selectedLob" class="form-control" ng-change="story.get_sub_lob(selectedLob)">
+							<option ng-repeat="lob in lobs" ng-bind="lob.title" value="{{lob._id}}"></option>
+						</select>
+
+						<label>Sub Lob:</label>
+						<select ng-model="selectedSubLob" class="form-control" ng-change="story.get_projects(selectedSubLob)">
+							<option ng-repeat="sublob in sublobs" ng-bind="sublob.title" value="{{sublob._id}}"></option>
+						</select>
+
+						<label>Project:</label>
+						<select ng-model="selectedProject" class="form-control" ng-change="story.get_projects_by_title(selectedProject)">
+							<option ng-repeat="project in projects" ng-bind="project.title" value="{{project.title}}"></option>
+						</select>
+						
+						<label>Year:</label>
+						<select ng-model="selectedYear" class="form-control" ng-change="story.get_projects_by_year(selectedYear)">
+							<option ng-repeat="project in projects" ng-bind="project.year" value="{{project.year}}"></option>
+						</select>
+
+						<label>Quarter:</label>
+						<select ng-model="selectedQuarter" class="form-control" ng-change="story.get_projects_by_quarter(selectedQuarter)">
+							<option ng-repeat="project in projects" ng-bind="project.quarter" value="{{project.quarter}}"></option>
+						</select>
+
+						<label>Month:</label>
+						<select ng-model="selectedMonth" class="form-control" ng-change="story.get_projects_by_month(selectedMonth)">
+							<option ng-repeat="project in projects" ng-bind="project.month" value="{{project.month}}"></option>
+						</select>
+
+						<h1 ng-if="noOfMembers" class="text-center">Number of members: {{noOfMembers}}</h1>
+
+					<!-- <button type="submit" class="btn btn-success">Add</button> -->
+					
+				</form>
+		
+		</div>
+
+		
+	</div>
+
+
+	<div class="col-md-3">
+
+
+		
+	</div>
+
+	
+</div>
